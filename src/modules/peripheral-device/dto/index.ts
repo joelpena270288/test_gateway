@@ -1,0 +1,1 @@
+export { PeripheralDeviceDto } from './peripheral-device.dto';
