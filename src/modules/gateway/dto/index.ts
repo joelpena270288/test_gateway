@@ -1,3 +1,5 @@
 import { from } from "rxjs"
 
-export { GatewayDto } from './gateway.dto';
+export { CreateGatewayDto } from './create-gateway.dto';
+export { ReadGatewayDto } from './read-gateway.dto';
+export { UpdateGatewayDto } from './update-gateway.dto';

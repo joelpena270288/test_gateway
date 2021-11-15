@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GatewayService } from './gateway.service';
 import { GatewayRepository } from './gateway.repository';
-import { GatewayController } from './gateway.controller';
+import { GatewayController } from './create-gateway.controller';
 @Module({
     imports: [
         TypeOrmModule.forFeature([
