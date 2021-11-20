@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { GatewayService } from './gateway.service';
-import { GatewayRepository } from './gateway.repository';
-import { GatewayController } from './create-gateway.controller';
+import { GatewayRepository } from './gateway.repository'; 
+import { GatewayController } from './gateway.controller';
+
 @Module({
     imports: [
         TypeOrmModule.forFeature([
             GatewayRepository
-        ])
+          ])
 
     ],
     exports: [TypeOrmModule],

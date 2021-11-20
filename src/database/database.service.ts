@@ -4,24 +4,19 @@ import { ConfingService } from '../config/confing.service';
 import { Connection, ConnectionOptions} from 'typeorm';
 import { type } from 'os';
 import { Configuration } from 'src/config/config.key';
+//Connection to the databases 
 export const databaseProviders = [
     TypeOrmModule.forRootAsync({
         imports: [ConfigModule],
         inject: [ConfingService],
         async useFactory(config: ConfingService) {
-            return {
-                //ssl: true,
-                //type: 'mongodb' as 'mongodb',
-                //host: config.get(Configuration.HOST),
-                //username: config.get(Configuration.USER),
-                //password: config.get(Configuration.PASSWORD),
-                database: "gateways",
-               // port: 27017,
+            return {              
 
                 type: "mongodb",
-    host: "localhost",
-    port: 27017,
-    //database: "test"
+                database: config.get(Configuration.DATABASE), 
+                host: config.get(Configuration.HOST),
+                port: 27017,
+   
                 entities: [__dirname + '/../**/*.entity{.ts,.js}'],
                 migrations: [__dirname + '/migrations/*{.ts,.js}'],
             } as ConnectionOptions;

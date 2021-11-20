@@ -1,8 +1,8 @@
 import { Exclude, Expose, Type } from 'class-transformer';
 import { IsNumber, IsString, IsDate, IsNotEmpty } from 'class-validator';
-import { Status } from '../estatus';
+import { Status } from '../../gateway/estatus';
 @Exclude()
-export class CreatePeripheralDeviceDto {
+export class ReadPeripheralDeviceDto {
     @Expose()
     @IsNotEmpty()
     @IsNumber()
@@ -16,8 +16,5 @@ export class CreatePeripheralDeviceDto {
     date_created: Date;
     @IsNotEmpty()
     status: Status;
-    @Expose()
-    @IsNotEmpty()
-    @IsString()
-    Id_gateway: string;
+   
 }

@@ -1,0 +1,11 @@
+{
+    "type": "mongodb",
+    "database": "gateways",
+    "host": "localhost",
+    "port": 27017,
+    "entities": ["src/modules/**/*.entity.{ts,js}"],
+    "migrations":["src/database/migrations/*{.ts,.js}"],
+    "cli": {
+        "migrationsDir": "src/database/migrations"
+    }
+}

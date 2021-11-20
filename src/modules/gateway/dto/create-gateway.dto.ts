@@ -1,6 +1,6 @@
 import { Exclude, Expose, Type } from 'class-transformer';
-import { IsNumber, IsString, IsNotEmpty, MaxLength} from 'class-validator';
-import { CreatePeripheralDeviceDto } from '../../peripheral-device/dto/index';
+import { IsString, IsNotEmpty, MaxLength, ValidateNested} from 'class-validator';
+import { CreatePeripheralDeviceDto } from './index';
 @Exclude()
 export class CreateGatewayDto {
     @Expose()
@@ -16,8 +16,9 @@ export class CreateGatewayDto {
     @IsString()
     readonly IPv4: string;
     @Expose()
-    @MaxLength(10, {message: "The Gateway only supports 10 devices"})
-   readonly peripherals_devices:CreatePeripheralDeviceDto[];
+    @ValidateNested({ each: true })
+    @Type((type) => CreatePeripheralDeviceDto)
+    readonly peripherals_devices: CreatePeripheralDeviceDto[];
     
 
     

@@ -1,6 +1,6 @@
 import { Exclude, Expose, Type } from 'class-transformer';
 import { IsNumber, IsString, IsNotEmpty} from 'class-validator';
-import { ReadPeripheralDeviceDto } from '../../peripheral-device/dto/index';
+import { ReadPeripheralDeviceDto } from './index';
 @Exclude()
 export class ReadGatewayDto {
     @Expose()
